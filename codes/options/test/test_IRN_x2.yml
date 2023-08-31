@@ -1,0 +1,39 @@
+name: IRN_x2
+suffix: ~  # add suffix to saved images
+model: IRN
+distortion: sr
+scale: 2
+crop_border: ~  # crop border when evaluation. If None(~), crop the scale pixels
+gpu_ids: [0]
+iters_HR: 15
+iters_LR: 15
+datasets:
+
+  test_1:
+    name: Set5
+    mode: LQGT
+    dataroot_GT: ./dataset/Set5/HR   # path to test HR images
+    dataroot_LQ: ./dataset/Set5/LR_bicubic/X2 # path to test reference LR images, not necessary, if not provided, LR images will be generated in dataloader
+
+  test_2:
+    name: Div2k
+    mode: LQGT
+    dataroot_GT: ./dataset/Div2k/HR   # path to test HR images
+    dataroot_LQ: ./dataset/Div2k/LR # path to test reference LR images, not necessary, if not provided, LR images will be generated in dataloader
+
+
+#### network
+network_G:
+  which_model_G:
+    subnet_type: DBNet
+  in_nc: 3
+  out_nc: 3
+  block_num: [8]
+  scale: 2
+  init: xavier
+
+
+#### path
+path:
+  pretrain_model_G: ./experiments/pretrained_models/IRN_x2.pth
+  results_root: ./results
