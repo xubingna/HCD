@@ -20,7 +20,7 @@ python my_train_patch.py -opt /options/test/test_IRN_x2.yml
 ```
 
 ## Architecture of HCD
-![Architecture](https://github.com/xubingna/HCD/blob/master/figures/Architecture.png)
+![Architecture](figures/HCD_Architecture.png)
 
 ## Acknowledgement
 The code is based on [IRN](https://github.com/pkuxmq/Invertible-Image-Rescaling), and the pretrained model comes from [IRN](https://github.com/pkuxmq/Invertible-Image-Rescaling).
